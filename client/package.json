@@ -1,0 +1,65 @@
+{
+	"name": "vscode-closure-completion-client",
+	"description": "Code completion for closure library and clutz.",
+	"author": "Ryan Brown",
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "ribrdb",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ribrdb/vscode-closure-completion"
+	},
+	"engines": {
+		"vscode": "^1.16.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:typescript"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Closure completions configuration",
+			"properties": {
+				"autocomplete.closure.enable": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": true,
+					"description": "Controls the enablement."
+				},
+				"autocomplete.closure.options": {
+					"scope": "resource",
+					"type": "object",
+					"default": {},
+					"description": "Additional options."
+				},
+				"autocomplete.closure.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VSCode and the language server."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -p ./",
+		"watch": "tsc -w -p ./",
+		"update-vscode": "node ./node_modules/vscode/bin/install",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"dependencies": {
+		"vscode": "^1.1.5",
+		"vscode-languageclient": "^3.5.0"
+	}
+}

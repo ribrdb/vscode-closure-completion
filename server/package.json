@@ -1,0 +1,27 @@
+{
+	"name": "vscode-closure-completion",
+	"description": "Code completion for closure library and clutz.",
+	"author": "Ryan Brown",
+	"license": "MIT",
+	"version": "0.0.1",
+	"engines": {
+		"node": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ribrdb/vscode-closure-completion"
+	},
+	"dependencies": {
+		"fs-walker": "^1.0.0",
+		"vscode-languageserver": "^3.5.0"
+	},
+	"scripts": {
+		"installServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json",
+		"compile": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
+		"watch": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -w -p ."
+	},
+	"devDependencies": {
+		"@types/klaw": "^2.1.1",
+		"@types/through2": "^2.0.33"
+	}
+}
